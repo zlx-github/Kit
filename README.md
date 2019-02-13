@@ -1,10 +1,9 @@
 <p align="center"><img width="173" height="57" src="https://kylin.app/imgs/logo.png"></p>
 
 <p align="center">
-<a href="https://github.com/Kylin-Studio/Kit/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" title="license-mit" /></a>\
-<a href="https://github.com/Kylin-Studio/kit/"><img src="https://badge.fury.io/gh/catlib%2Fcatlib.svg" title="GitHub version" /></a>
+<a href="https://github.com/Kylin-Studio/Kit/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" title="license-mit" /></a>
 <a href="https://ci.appveyor.com/project/gjmvvv/kit"><img src="https://ci.appveyor.com/api/projects/status/tk3o571mwbw2rykj?svg=true" title="Build status"/></a>
-
+<a href="https://badge.fury.io/gh/https%3A%2F%2Fgithub.com%2FKylin-Studio%2FKit%2F"><img src="https://badge.fury.io/gh/https%3A%2F%2Fgithub.com%2FKylin-Studio%2FKit%2F.png" alt="GitHub version" height="18"></a>
 > We are currently preparing to convert the comments in the code to the English version. We look forward to your joining.
 
 > 了解 [Kylin-Studio/Kit](https://github.com/Kylin-Studio/Kit) 源码
