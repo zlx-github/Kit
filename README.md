@@ -1,4 +1,4 @@
-<p align="center"><img width="173" height="57" src="https://kylin.app/imgs/logo.png"></p>
+<p align="center"><img width="128" height="128" src="https://kylin.app/imgs/logo.png"></p>
 
 <p align="center">
 <a href="https://github.com/Kylin-Studio/Kit/blob/master/LICENSE">
