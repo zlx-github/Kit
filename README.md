@@ -6,7 +6,7 @@
 <a href="https://ci.appveyor.com/project/gjmvvv/kit">
   <img src="https://ci.appveyor.com/api/projects/status/tk3o571mwbw2rykj?svg=true" title="Build status"/></a>
 <a href="https://github.com/Kylin-Studio/Kit/">
-  <img src="https://img.shields.io/badge/version-v0.1.0-green.svg" title="GitHub version" >/a>
+  <img src="https://img.shields.io/badge/version-v0.1.0-green.svg" title="GitHub version" ></a>
 <a href="https://github.com/Kylin-Studio/Kit/releases">
   <img src="https://img.shields.io/badge/Download-1k-green.svg" title="Downloads" /></a>
 </p>
