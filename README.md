@@ -51,3 +51,13 @@ Kit 设计初衷则是根据业务需求自由组合搭配其中组件, 项目�
 * QQ群: 633542313
 * email: kevin@kylin.app
 * home: [http://kylin.app/](https://kylin.app/)
+
+
+## 优秀的开源框架/项目
+- [GameFramework](http://gameframework.cn/) 是一个基于 Unity 5.3+ 引擎的游戏框架，主要对游戏开发过程中常用模块进行了封装，很大程度地规范开发过程、加快开发速度并保证产品质量。（[@Ellan](https://github.com/EllanJiang)）
+
+- [ET框架](https://github.com/egametang/ET) 是一个Unity3d客户端+C#分布式服务端框架。使用组件式开发，提供客户端热更，服务端热更功能，提供erlang式分布式消息机制（[@熊猫](https://github.com/egametang)）
+
+- [CatLib](https://catlib.io) 是一套渐进式的服务提供者框架。框架为客户端提供多个实现，并把他们从多个实现中解耦出来。服务提供者的改变对它们的客户端是透明的，这样提供了更好的可扩展性。她不仅易于上手，还便于与第三方库或既有项目整合。([@喵喵](https://github.com/yb199478)) 
+
+- [BlackFire](https://github.com/BlackFire-Studio/BlackFire) Framework 是专门为了提高中小型企业程序研发团队工作效率和降低中小型企业研发成本而设计的Unity3D游戏开发框架，框架遵循MIT协议，目前还在开发阶段，预计未来框架将友好地面向游戏、三维仿真、VR、AR、Web、区块链等业务开发团队。 ([@Alan](https://github.com/0x69h)) 
