@@ -130,6 +130,7 @@ namespace Kit
             else
                 Debug.LogErrorFormat("SetCanvasRarcaster  '{0}'  not  GraphicRaycaster .", tf.name);
         }
+
         public static void InitRectTransform(this RectTransform rectTf)
         {
             rectTf.anchorMin = Vector2.zero;
@@ -139,6 +140,7 @@ namespace Kit
             rectTf.localScale = Vector3.one;
             rectTf.sizeDelta = Vector2.zero;
         }
+
         public static void InitTransform(this Transform transform)
         {
             transform.position = Vector3.zero;
@@ -151,6 +153,21 @@ namespace Kit
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
             transform.localScale = Vector3.one;
+        }
+
+        /// <summary>
+        /// 面向目标方向
+        /// </summary>
+        /// <param name="transform">需要转向的对象</param>
+        /// <param name="targetDirection">目标方向</param>
+        /// <param name="rotationSpeed">转向速度</param>
+        public static void LookAtTarget(this Transform transform, Vector3 targetDirection,  float rotationSpeed)
+        {
+            if (targetDirection != Vector3.zero)
+            {
+                var targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed);
+            }
         }
 
         #region ... Position
