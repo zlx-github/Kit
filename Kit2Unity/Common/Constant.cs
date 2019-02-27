@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Kit
 {
-    public static partial class Utility
+    public static partial class Constant
     {
 
         #region ... Constant

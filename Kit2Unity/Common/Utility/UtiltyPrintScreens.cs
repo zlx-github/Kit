@@ -31,7 +31,7 @@ namespace Kit
             public static IEnumerator PrintScreenAc(UnityAction<Texture2D> ua, Rect rect, Vector2 dest)
             {
                 Texture2D texture = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGB24, false);
-                yield return Utility.WaitFPSEnd;
+                yield return Constant.WaitFPSEnd;
                 texture.ReadPixels(rect, (int)dest.x, (int)dest.y);
                 texture.Apply();
                 if (ua != null)

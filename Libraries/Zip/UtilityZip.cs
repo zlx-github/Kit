@@ -202,7 +202,7 @@ namespace Kit
                 {
                     Debug.LogFormat("UnZip :  {0} , {1} , {2} , {3} .", zipInStream.Position, zipInStream.Length, zipPath, unZipDirPath);
                     UnzipFile(zip, zipInStream, unZipDirPath);
-                    yield return WaitFPSEnd;
+                    yield return Constant.WaitFPSEnd;
                 }
                 try
                 {
