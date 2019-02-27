@@ -13,10 +13,7 @@ using UnityEngine.UI;
 namespace Kit.Runtime
 {
     public class Timer : MonoBehaviour
-    {
-        private static WaitForSeconds WaitNextOneSeconds = new WaitForSeconds(1);   // 下一秒 迭代器
-        private static WaitForEndOfFrame FrameWait = new WaitForEndOfFrame();       // 下一帧迭代器
-
+    { 
         public int TotalTime;
         public Text Text;
         public string TextFormat;
@@ -147,13 +144,13 @@ namespace Kit.Runtime
             {
                 if (!isTiming)
                 {
-                    yield return FrameWait;
+                    yield return Constant.WaitFPSEnd;
                 }
                 if (Text)
                 {
                     Text.text = string.IsNullOrEmpty(TextFormat) ? TotalTime.ToString() : Utility.Text.Format(TextFormat, TotalTime);
                 }
-                yield return WaitNextOneSeconds;
+                yield return Constant.WaitNextOneSeconds;
                 TotalTime--;
                 if (UpdateAction != null)
                 {
@@ -169,9 +166,7 @@ namespace Kit.Runtime
         }
 
         #endregion
-
-
-
+         
         public static Timer Creator(GameObject go, int totalTime = 60, UnityAction endAction = null,
             UnityAction<int> updateAction = null, Text text = null, string textFormat = null)
         {

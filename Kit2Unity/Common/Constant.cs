@@ -13,10 +13,16 @@ namespace Kit
 
         #region ... Constant
         /// <summary>
-        /// 等等当前帧结束
+        /// 等待当前帧结束
         /// </summary>
         public static WaitForEndOfFrame WaitFPSEnd = new WaitForEndOfFrame();
+
+        /// <summary>
+        /// 等待一秒
+        /// </summary>
+        public static WaitForSeconds WaitNextOneSeconds = new WaitForSeconds(1); 
+
         #endregion
-         
+
     }
 }
