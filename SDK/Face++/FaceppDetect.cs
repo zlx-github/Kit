@@ -16,6 +16,7 @@ namespace Kit
         /// <returns></returns>
         public IEnumerator PostDetect(byte[] img, RequestComplete complete)
         {
+            // TODO： api-key / api-secret 请在 https://www.faceplusplus.com.cn/  申请
             WWWForm wwwForm = new WWWForm();
             wwwForm.AddField("api_key", Utility.Http.EscapeString("api-key"));
             wwwForm.AddField("api_secret", Utility.Http.EscapeString("api-secret"));
