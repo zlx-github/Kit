@@ -13,11 +13,11 @@ namespace Kit.Runtime
     /// <summary>
     /// 对象池
     /// </summary>
-    public class GameObjectPool : MonoSingleton<GameObjectPool>
+    public class GameObjectPool
     {
         /// <summary>可能存放多个种类的对象，每个种类有多个对象 </summary>
-        private Dictionary<string,List<GameObject>> cache = new Dictionary<string,List<GameObject>>();
-       
+        private Dictionary<string, List<GameObject>> cache = new Dictionary<string, List<GameObject>>();
+
         /// <summary>增加物体进入池(按类别增加)</summary>
         public void Add(string key, GameObject go)
         {
@@ -30,16 +30,15 @@ namespace Kit.Runtime
 
         /// <summary>销毁物体(将对象隐藏)</summary>
         public void MyDestory(GameObject destoryGo)
-        {
-            //设置destoryGo隐藏
+        { 
             destoryGo.SetActive(false);
         }
 
         /// <summary>将对象归入池中<summary>
         public void MyDestory(GameObject tempGo, float delay)
         {
-            //开启一个协程
-            StartCoroutine(DelayDestory(tempGo,delay));
+            Debug.LogError("TODO: 此处需要完善 基于Mono开启协程"); 
+            // StartCoroutine(DelayDestory(tempGo, delay));
         }
 
         /// <summary>延迟销毁</summary>
@@ -54,7 +53,7 @@ namespace Kit.Runtime
         public GameObject FindUsable(string key)
         {
             //1.在容器中找出key对应的列表，从列表中找出已经为隐藏状态的对象，返回
-            if(cache.ContainsKey(key))
+            if (cache.ContainsKey(key))
                 foreach (GameObject item in cache[key])
                 {
                     if (!item.activeSelf)
@@ -76,7 +75,7 @@ namespace Kit.Runtime
             }
             else
             {
-                tempGo= GameObject.Instantiate(go, position, quaternion) as GameObject;
+                tempGo = GameObject.Instantiate(go, position, quaternion) as GameObject;
                 Add(key, tempGo);
             }
             return tempGo;
@@ -95,6 +94,6 @@ namespace Kit.Runtime
             cache.Clear();
         }
 
-       
+
     }
 }

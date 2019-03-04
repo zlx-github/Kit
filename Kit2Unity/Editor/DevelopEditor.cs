@@ -86,8 +86,8 @@ namespace Kit.Editor
         }
         #endregion
 
-        #region "Kit/Kit/Collect Resource Dependencies"
-        [MenuItem("Kit/Kit/Collect Resource Dependencies")]
+        #region "Kit/Collect Resource Dependencies"
+        [MenuItem("Kit/Collect Resource Dependencies")]
         public static void CollectResourceDependencies()
         {
             //CollectResourceDependencies(Selection.objects);
@@ -115,7 +115,7 @@ namespace Kit.Editor
             }
         }
 
-        [MenuItem("Kit/Kit/Collect Resource Dependencies", true)]
+        [MenuItem("Kit/Collect Resource Dependencies", true)]
         public static bool CheckCollectResourceDependencies()
         {
             return Selection.objects.Length == 1 && !string.IsNullOrEmpty(AssetDatabase.GetAssetPath(Selection.activeObject));
@@ -146,7 +146,7 @@ namespace Kit.Editor
 		}
 		#endregion
 		
-		#region "Kit/Kit/Get Resource Path"
+		#region "Kit/Get Resource Path"
 		[MenuItem("Kit/Get Resource Path")]
 		public static void GetResourcePath ()
 		{

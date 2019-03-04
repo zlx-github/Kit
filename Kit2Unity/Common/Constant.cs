@@ -12,6 +12,7 @@ namespace Kit
     {
 
         #region ... Constant
+
         /// <summary>
         /// 等待当前帧结束
         /// </summary>

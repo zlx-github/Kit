@@ -4,7 +4,6 @@
 // E-Mail: kevin@kylin.app
 // ----------------------------------------------------------------------------------------------------
 
-using Kit;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,11 +13,11 @@ namespace Kit.Runtime
 {
     public class Timer : MonoBehaviour
     { 
-        public int TotalTime;
-        public Text Text;
-        public string TextFormat;
-        public UnityAction EndAction;
-        public UnityAction<int> UpdateAction;
+        public int totalTime;
+        public Text text;
+        public string textFormat;
+        public UnityAction endAction;
+        public UnityAction<int> updateAction;
 
         private IEnumerator timerIEnumerator;
         private bool isTiming = false;
@@ -36,9 +35,9 @@ namespace Kit.Runtime
         public static Timer CreatorTextTimer(GameObject go, int totalTime, Text text, string textFormat = null, bool isStartTimer = true)
         {
             Timer timer = go.GetOrAddComponent<Timer>();
-            timer.TotalTime = totalTime;
-            timer.Text = text ? text : go.GetComponent<Text>();
-            timer.TextFormat = textFormat;
+            timer.totalTime = totalTime;
+            timer.text = text ? text : go.GetComponent<Text>();
+            timer.textFormat = textFormat;
             if (isStartTimer)
             {
                 timer.StartTimer();
@@ -61,8 +60,8 @@ namespace Kit.Runtime
             UnityAction<int> updateAction, bool isStartTimer = true)
         {
             Timer timer = CreatorTextTimer(go, totalTime, text, textFormat, false);
-            timer.EndAction = endAction;
-            timer.UpdateAction = updateAction;
+            timer.endAction = endAction;
+            timer.updateAction = updateAction;
             if (isStartTimer)
             {
                 timer.StartTimer();
@@ -83,9 +82,9 @@ namespace Kit.Runtime
             UnityAction<int> updateAction, bool isStartTimer = true)
         {
             Timer timer = go.GetOrAddComponent<Timer>();
-            timer.TotalTime = totalTime;
-            timer.EndAction = endAction;
-            timer.UpdateAction = updateAction;
+            timer.totalTime = totalTime;
+            timer.endAction = endAction;
+            timer.updateAction = updateAction;
             if (isStartTimer)
             {
                 timer.StartTimer();
@@ -97,20 +96,27 @@ namespace Kit.Runtime
 
         #region ... Timer API
 
+        /// <summary>
+        /// 开始计时
+        /// </summary>
         public void StartTimer()
         {
             isTiming = true;
-            timerIEnumerator = TimerIEnumerator();
+            timerIEnumerator = TimerBody();
             StartCoroutine(timerIEnumerator);
         }
 
+        /// <summary>
+        /// 停止计时
+        /// </summary>
         public void StopTimer()
         {
+            isTiming = false; 
             if (timerIEnumerator != null)
             {
                 StopCoroutine(timerIEnumerator);
                 timerIEnumerator = null;
-            }
+            } 
         }
 
         /// <summary>
@@ -130,7 +136,7 @@ namespace Kit.Runtime
         }
 
         /// <summary>
-        /// 效果计时器
+        /// 销毁计时器
         /// </summary>
         public void DestroyTimer()
         {
@@ -138,71 +144,34 @@ namespace Kit.Runtime
             Destroy(this);
         }
 
-        IEnumerator TimerIEnumerator()
+        IEnumerator TimerBody()
         {
-            while (TotalTime >= 0)
+            while (totalTime >= 0)
             {
                 if (!isTiming)
                 {
                     yield return Constant.WaitFPSEnd;
                 }
-                if (Text)
+                if (text)
                 {
-                    Text.text = string.IsNullOrEmpty(TextFormat) ? TotalTime.ToString() : Utility.Text.Format(TextFormat, TotalTime);
+                    text.text = string.IsNullOrEmpty(textFormat) ? totalTime.ToString() : Utility.Text.Format(textFormat, totalTime);
                 }
                 yield return Constant.WaitNextOneSeconds;
-                TotalTime--;
-                if (UpdateAction != null)
+                totalTime--;
+                if (updateAction != null)
                 {
-                    UpdateAction(TotalTime);
+                    updateAction(totalTime);
                 }
             }
-            if (EndAction != null)
+            if (endAction != null)
             {
-                EndAction();
-                EndAction = null;
+                endAction();
+                endAction = null;
             }
             timerIEnumerator = null;
         }
 
         #endregion
-         
-        public static Timer Creator(GameObject go, int totalTime = 60, UnityAction endAction = null,
-            UnityAction<int> updateAction = null, Text text = null, string textFormat = null)
-        {
-            Timer timer = go.GetComponent<Timer>();
-            if (timer == null)
-                timer = go.AddComponent<Timer>();
-            timer.TotalTime = totalTime;
-            timer.Text = text ? text : go.GetComponent<Text>();
-            timer.EndAction = endAction;
-            timer.UpdateAction = updateAction;
-            timer.StartCountDown();
-            return timer;
-        }
-
-        public void StartCountDown()
-        {
-            StartCoroutine(CountDown());
-        }
-
-        IEnumerator CountDown()
-        {
-            while (TotalTime >= 0)
-            {
-                Text.text = TotalTime.ToString() + "秒后重新获取";
-                yield return new WaitForSeconds(1);
-                TotalTime--;
-                if (UpdateAction != null)
-                {
-                    UpdateAction.Invoke(TotalTime);
-                }
-            }
-            if (EndAction != null)
-            {
-                EndAction.Invoke();
-                EndAction = null;
-            }
-        }
+          
     }
 }
